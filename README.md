@@ -42,19 +42,19 @@ where `fold` denotes cross-validation and `percent` denotes the percentage of la
 CUDA_VISIBLE_DEVICES=0 python tools/train.py -c configs/semi_det/sodrs/sodrs_fcos_r50_fpn_coco_semi010.yml --eval
 
 # Doka training
-python -m paddle.distributed.launch --log_dir=denseteacher_fcos_semi010/ --gpus 0,1,2,3,4,5,6,7 tools/train.py -c configs/semi_det/sodrs/sodrs_fcos_r50_fpn_coco_semi010.yml --eval
+python -m paddle.distributed.launch --log_dir=sodrs_fcos_semi010/ --gpus 0,1,2,3,4,5,6,7 tools/train.py -c configs/semi_det/sodrs/sodrs_fcos_r50_fpn_coco_semi010.yml --eval
 ```
 
 ### Valuation
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 python tools/eval.py -c configs/semi_det/denseteacher/sodrs_fcos_r50_fpn_coco_semi010.yml -o weights=output/sodrs_fcos_r50_fpn_coco_semi010/model_final.pdparams
+CUDA_VISIBLE_DEVICES=0 python tools/eval.py -c configs/semi_det/sodrs/sodrs_fcos_r50_fpn_coco_semi010.yml -o weights=output/sodrs_fcos_r50_fpn_coco_semi010/model_final.pdparams
 ```
 
 ### Anticipate
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 python tools/infer.py -c configs/semi_det/denseteacher/sodrs_fcos_r50_fpn_coco_semi010.yml -o weights=output/denseteacher_fcos_r50_fpn_coco_semi010/model_final.pdparams --infer_img=demo/000000014439.jpg
+CUDA_VISIBLE_DEVICES=0 python tools/infer.py -c configs/semi_det/sodrs/sodrs_fcos_r50_fpn_coco_semi010.yml -o weights=output/sodrs_fcos_r50_fpn_coco_semi010/model_final.pdparams --infer_img=..
 ```
 
 ### Deployments
@@ -62,7 +62,7 @@ CUDA_VISIBLE_DEVICES=0 python tools/infer.py -c configs/semi_det/denseteacher/so
 
 ```bash
 # Export model
-CUDA_VISIBLE_DEVICES=0 python tools/export_model.py -c configs/semi_det/sodrs/sodrs_fcos_r50_fpn_coco_semi010.yml -o weights=https://paddledet.bj.bcebos.com/models/denseteacher_fcos_r50_fpn_coco_semi010.pdparams
+CUDA_VISIBLE_DEVICES=0 python tools/export_model.py -c configs/semi_det/sodrs/sodrs_fcos_r50_fpn_coco_semi010.yml -o weights=output/sodrs_fcos_r50_fpn_coco_semi010/model_final.pdparams
 ```
 
 ## Quote
