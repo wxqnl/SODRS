@@ -1,4 +1,3 @@
-简体中文 | [English](README_en.md)
 
 # Semi-Supervised Learning for One-Stage Small Object Detection in Remote Sensing Images(SODRS)
 
